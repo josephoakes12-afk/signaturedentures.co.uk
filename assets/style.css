@@ -5,11 +5,11 @@
 :root{
   --bg: #0b1320;
   --bg-2: #0f1b2d;
-  --card: rgba(255,255,255,.06);
-  --card-2: rgba(255,255,255,.08);
+
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.72);
   --muted-2: rgba(255,255,255,.60);
+
   --line: rgba(255,255,255,.10);
 
   --gold: #c7a35a;
@@ -26,12 +26,14 @@
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  background: radial-gradient(1200px 700px at 30% -10%, rgba(199,163,90,.16), transparent 55%),
-              radial-gradient(900px 700px at 90% 0%, rgba(199,163,90,.10), transparent 50%),
-              linear-gradient(180deg, var(--bg), var(--bg-2));
+  background:
+    radial-gradient(1200px 700px at 30% -10%, rgba(199,163,90,.16), transparent 55%),
+    radial-gradient(900px 700px at 90% 0%, rgba(199,163,90,.10), transparent 50%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
   color: var(--text);
   line-height:1.55;
 }
@@ -62,9 +64,7 @@ a:focus-visible{
   border-radius: 10px;
   z-index: 999;
 }
-.skip-link:focus{
-  left: 1rem;
-}
+.skip-link:focus{ left: 1rem; }
 
 /* Header / Nav */
 header{
@@ -104,7 +104,6 @@ header{
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
 }
-
 
 .brand-name strong{
   display:block;
@@ -146,9 +145,8 @@ nav a:hover{
 }
 
 /* Hero */
-.hero{
-  padding: 2.5rem 0 1.4rem;
-}
+.hero{ padding: 2.5rem 0 1.4rem; }
+
 .kicker{
   display:inline-block;
   font-size:.85rem;
@@ -160,12 +158,14 @@ nav a:hover{
   border-radius: 999px;
   background: rgba(255,255,255,.03);
 }
+
 h1{
   margin: .9rem 0 .6rem;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
   line-height:1.15;
   letter-spacing:-.3px;
 }
+
 .lead{
   margin: 0;
   color: var(--muted);
@@ -173,9 +173,14 @@ h1{
   max-width: 70ch;
 }
 
-/* Sections */
+/* Sections
+   The key fix here is isolation + overflow,
+   which prevents any visual bleed into the next band/area. */
 .section{
   padding: 1.2rem 0 2.2rem;
+  position: relative;
+  isolation: isolate;   /* IMPORTANT: contains stacking context */
+  overflow: hidden;     /* IMPORTANT: prevents bleed */
 }
 
 /* Cards */
@@ -186,18 +191,14 @@ h1{
   padding: 1.1rem 1.1rem;
   box-shadow: var(--shadow);
 }
-.card strong{
-  letter-spacing:.2px;
-}
+.card strong{ letter-spacing:.2px; }
 
 /* Text helpers */
 .small{
   color: var(--muted);
   font-size: .95rem;
 }
-.small strong{
-  color: var(--text);
-}
+.small strong{ color: var(--text); }
 
 /* Grid utilities */
 .grid-3{
@@ -209,29 +210,38 @@ h1{
   .grid-3{ grid-template-columns: 1fr; }
 }
 
-/* Notice */
+/* Notice (yellow box)
+   Fully clipped + its own layer so it cannot “overlap” visually. */
 .notice{
   width: 100%;
   display: block;
+
+  position: relative;
+  z-index: 0;
+
   background: rgba(199,163,90,.10);
   border: 1px solid rgba(199,163,90,.22);
   color: var(--text);
+
   padding: 1rem 1rem;
   border-radius: var(--radius);
-  overflow: hidden;         /* stops any visual bleed */
+
+  overflow: hidden;              /* hard clip */
+  background-clip: padding-box;  /* stops edge bleed */
+  transform: translateZ(0);      /* forces clean compositing on some browsers */
 }
 
-
-/* Footer */
+/* Footer
+   Add a subtle solid backing so the gradient shift behind doesn’t look like overlap. */
 .footer{
   border-top: 1px solid var(--line);
   padding: 1.2rem 0 2rem;
   color: var(--muted-2);
+  background: rgba(11,19,32,.55);
 }
 
-/* ========== NEW: About & Team image styling ========== */
+/* ========== About & Team image styling ========== */
 
-/* Logo avatar next to About us */
 .avatar{
   width: 56px;
   height: 56px;
@@ -242,19 +252,15 @@ h1{
   box-shadow: var(--shadow-soft);
 }
 
-/* Team grid */
 .team{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
-
-/* Responsive team layout */
 @media (max-width: 900px){
   .team{ grid-template-columns: 1fr; }
 }
 
-/* Portrait headshots */
 .portrait{
   width: 100%;
   height: 260px;
@@ -265,7 +271,6 @@ h1{
   margin-bottom: .85rem;
 }
 
-/* Team role */
 .role{
   color: var(--muted);
   font-size: .95rem;
@@ -273,7 +278,6 @@ h1{
   margin-bottom: .75rem;
 }
 
-/* Headings */
 h2{
   font-size: 1.35rem;
   letter-spacing: -.2px;
@@ -284,7 +288,4 @@ h3{
   letter-spacing: -.2px;
 }
 
-/* Small spacing improvements inside cards */
-.card p{
-  margin: .65rem 0;
-}
+.card p{ margin: .65rem 0; }
