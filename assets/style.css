@@ -94,13 +94,17 @@ header{
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  background:
-    radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.22), transparent 60%),
-    radial-gradient(34px 34px at 70% 40%, rgba(199,163,90,.30), transparent 60%),
-    linear-gradient(140deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+
+  /* Logo inside the circle */
+  background-image: url("images/logo-circle.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
 }
+
 
 .brand-name strong{
   display:block;
@@ -207,12 +211,16 @@ h1{
 
 /* Notice */
 .notice{
+  width: 100%;
+  display: block;
   background: rgba(199,163,90,.10);
   border: 1px solid rgba(199,163,90,.22);
   color: var(--text);
   padding: 1rem 1rem;
   border-radius: var(--radius);
+  overflow: hidden;         /* stops any visual bleed */
 }
+
 
 /* Footer */
 .footer{
