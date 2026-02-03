@@ -316,3 +316,68 @@ h3{
   position: relative;
   isolation: isolate;
 }
+
+/* Buttons / CTAs */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+
+  padding: .7rem 1.1rem;
+  border-radius: 999px;
+
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: .2px;
+
+  text-decoration: none;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+
+/* Primary action (gold accent) */
+.btn-primary{
+  color: var(--text);
+  background: linear-gradient(
+    180deg,
+    rgba(199,163,90,.22),
+    rgba(199,163,90,.12)
+  );
+  border-color: rgba(199,163,90,.35);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover{
+  background: linear-gradient(
+    180deg,
+    rgba(199,163,90,.32),
+    rgba(199,163,90,.18)
+  );
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* Secondary action (quiet outline) */
+.btn-secondary{
+  color: var(--text);
+  background: rgba(255,255,255,.04);
+  border-color: var(--line);
+}
+
+.btn-secondary:hover{
+  background: rgba(255,255,255,.08);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* Button grouping (optional helper) */
+.btn-group{
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
