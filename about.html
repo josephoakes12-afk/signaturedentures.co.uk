@@ -1,4 +1,40 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Signature Dentures</title>
+  <meta name="description" content="Signature Dentures provides denture services with a focus on comfort, fit, and personal care in Cheadle, Stoke-on-Trent." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div class="brand-name">
+        <strong>Signature Dentures</strong>
+        <span>Comfort • Fit • Personal care</span>
+      </div>
+    </div>
+
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <main id="main">
+
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="kicker">About</div>
@@ -9,72 +45,120 @@
     </div>
   </section>
 
+  <!-- Values -->
   <section class="section">
     <div class="container grid-3">
       <div class="card">
         <strong>Personal approach</strong>
-        <p class="small">We take time to listen, explain options clearly and support you through each stage of the process.</p>
+        <p class="small">
+          We take time to listen, explain options clearly and support you through each stage of the process.
+        </p>
       </div>
+
       <div class="card">
-        <strong>Quality & comfort</strong>
-        <p class="small">We aim for a secure fit and a natural look, with practical guidance for ongoing care.</p>
+        <strong>Quality &amp; comfort</strong>
+        <p class="small">
+          We aim for a secure fit and a natural look, with practical guidance for ongoing care.
+        </p>
       </div>
+
       <div class="card">
         <strong>Local service</strong>
-        <p class="small">Based at 16 Cross Street, Cheadle, Stoke-on-Trent, serving the local community.</p>
-      </div>
-    </div>
-
-    <!-- About us card (NEW) -->
-    <div class="container" style="margin-top:1.2rem;">
-      <div class="card">
-        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <img class="avatar" src="assets/images/logo-circle.png" alt="Signature Dentures logo" loading="lazy">
-          <div>
-            <strong>About us</strong>
-            <div class="small">Family-run denture service in Cheadle, Stoke-on-Trent.</div>
-          </div>
-        </div>
-
-        <p class="small" style="margin-top:.9rem;">
-          Signature Dentures is a family-run business focused on comfort, fit and personal care. We aim to provide clear guidance and a calm, professional experience from consultation through to fitting and aftercare.
+        <p class="small">
+          Based at 16 Cross Street, Cheadle, Stoke-on-Trent, serving the local community.
         </p>
       </div>
     </div>
 
-    <!-- Our team section (NEW) -->
+    <!-- About us -->
+    <div class="container" style="margin-top:1.2rem;">
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <img
+            class="avatar"
+            src="assets/images/logo-circle.png"
+            alt="Signature Dentures logo"
+            loading="lazy"
+          >
+          <div>
+            <strong>About us</strong>
+            <div class="small">
+              Family-run denture service in Cheadle, Stoke-on-Trent.
+            </div>
+          </div>
+        </div>
+
+        <p class="small" style="margin-top:.9rem;">
+          Signature Dentures is a family-run business focused on comfort, fit and personal care.
+          We aim to provide clear guidance and a calm, professional experience from consultation
+          through to fitting and aftercare.
+        </p>
+      </div>
+    </div>
+
+    <!-- Our team -->
     <div class="container" style="margin-top:1rem;">
       <h2 style="margin:0 0 .8rem;">Our team</h2>
 
       <div class="team">
         <div class="card">
-          <img class="portrait" src="assets/images/simon.png" alt="Simon Owen, Clinical Dental Technician" loading="lazy">
+          <img
+            class="portrait"
+            src="assets/images/simon.jpg"
+            alt="Simon Owen, Clinical Dental Technician"
+            loading="lazy"
+          >
           <h3>Simon Owen</h3>
           <div class="role">Clinical Dental Technician (CDT)</div>
+
           <p class="small">
-            Simon has been making cosmetic dentures for over 20 years. He gained his initial Dental Technology qualification in Manchester in 1993 and has run a successful dental laboratory ever since.
+            Simon has been making cosmetic dentures for over 20 years. He gained his initial
+            Dental Technology qualification in Manchester in 1993 and has run a successful
+            dental laboratory ever since.
           </p>
+
           <p class="small" style="margin:0;">
             <strong>GDC registration:</strong> 164114
           </p>
         </div>
 
         <div class="card">
-          <img class="portrait" src="assets/images/janine.png" alt="Janine, Admin and Reception" loading="lazy">
+          <img
+            class="portrait"
+            src="assets/images/janine.png"
+            alt="Janine, Admin and Reception"
+            loading="lazy"
+          >
           <h3>Janine</h3>
           <div class="role">Admin &amp; Reception</div>
+
           <p class="small">
-            Janine supports clients from the first enquiry onwards, helping to arrange appointments and ensuring you feel informed and comfortable throughout.
+            Janine supports clients from the first enquiry onwards, helping to arrange
+            appointments and ensuring you feel informed and comfortable throughout.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Keep your notice (optional) -->
+    <!-- Callout -->
     <div class="container" style="margin-top:1rem;">
       <div class="notice">
         If you have questions about your options, please get in touch for a consultation.
       </div>
     </div>
   </section>
+
 </main>
+
+<footer class="footer">
+  <div class="container small">
+    © <span id="y"></span> Signature Dentures
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
