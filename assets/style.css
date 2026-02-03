@@ -1,1 +1,220 @@
+:root{
+  --bg: #fbfaf6;          /* soft ivory */
+  --ink: #0f1f2e;         /* deep navy */
+  --muted: #4a5663;
+  --gold: #b79a52;        /* muted gold */
+  --card: #ffffff;
+  --border: rgba(15,31,46,.10);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--ink);
+  line-height:1.6;
+}
+
+a{ color: inherit; text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.container{
+  width:min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.skip-link{
+  position:absolute; left:-999px; top:auto;
+  width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  left: 1rem; top: 1rem;
+  width:auto; height:auto; padding:.6rem .8rem;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: .6rem;
+  z-index: 9999;
+}
+
+header{
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(251,250,246,.7);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top:0;
+  z-index: 10;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+.brand-mark{
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(183,154,82,.25), transparent 55%),
+    linear-gradient(135deg, rgba(15,31,46,.95), rgba(15,31,46,.78));
+  border:1px solid rgba(183,154,82,.35);
+}
+.brand-name{
+  display:flex;
+  flex-direction: column;
+  line-height:1.1;
+}
+.brand-name strong{ letter-spacing:.3px; }
+.brand-name span{
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap: .9rem;
+  padding:0;
+  margin:0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+nav a{
+  padding: .55rem .7rem;
+  border-radius: .8rem;
+}
+nav a[aria-current="page"]{
+  background: rgba(183,154,82,.12);
+  border: 1px solid rgba(183,154,82,.25);
+  text-decoration: none;
+}
+
+.hero{
+  padding: 3.2rem 0 2rem;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.25fr .85fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+@media (max-width: 860px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  header{ position: static; }
+}
+
+h1{
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height:1.15;
+  margin: 0 0 .8rem;
+}
+.lead{
+  font-size: 1.08rem;
+  color: var(--muted);
+  margin: 0 0 1.2rem;
+}
+
+.badges{
+  display:flex;
+  flex-wrap: wrap;
+  gap:.6rem;
+  margin: 1.1rem 0 0;
+}
+.badge{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.7);
+  border-radius: 999px;
+  padding: .4rem .7rem;
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  padding: 1.1rem;
+  box-shadow: 0 10px 30px rgba(15,31,46,.05);
+}
+
+.cta{
+  display:flex;
+  gap:.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding: .75rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-weight: 600;
+}
+.button.primary{
+  background: linear-gradient(135deg, rgba(15,31,46,.98), rgba(15,31,46,.86));
+  color: #fff;
+  border-color: rgba(15,31,46,.25);
+}
+.button.primary:hover{ text-decoration:none; filter: brightness(1.02); }
+.button:hover{ text-decoration:none; }
+
+.section{
+  padding: 1.6rem 0 2.4rem;
+}
+.section h2{
+  margin: 0 0 .8rem;
+  font-size: 1.6rem;
+}
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 860px){
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+.small{
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+.footer{
+  padding: 1.6rem 0 2.4rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+.footer a{ color: var(--muted); }
+.kicker{
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: .82rem;
+}
+.list{
+  padding-left: 1.1rem;
+}
+.list li{ margin: .2rem 0; }
+
+.notice{
+  border-left: 4px solid rgba(183,154,82,.7);
+  background: rgba(183,154,82,.08);
+  padding: .8rem 1rem;
+  border-radius: .9rem;
+  color: var(--muted);
+}
 
