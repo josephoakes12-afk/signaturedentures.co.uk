@@ -578,3 +578,29 @@ h3{
 .form button.btn{
   border: 1px solid transparent;
 }
+
+/* ========== Mobile nav quality-of-life tweaks ========== */
+@media (max-width: 520px){
+  .nav{
+    gap: .75rem;
+    padding: .75rem 0;
+  }
+
+  nav ul{
+    gap: .45rem;
+  }
+
+  nav a{
+    padding: .45rem .55rem;
+    font-size: .92rem;
+  }
+
+  .brand-mark{
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-name span{
+    font-size: .82rem;
+  }
+}
