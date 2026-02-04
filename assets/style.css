@@ -1,4 +1,5 @@
-/* Signature Dentures – Core Styles
+/* assets/style.css
+   Signature Dentures – Core Styles
    Clean, premium, calm healthcare look
 */
 
@@ -173,14 +174,26 @@ h1{
   max-width: 70ch;
 }
 
-/* Sections
-   The key fix here is isolation + overflow,
-   which prevents any visual bleed into the next band/area. */
+h2{
+  font-size: 1.35rem;
+  letter-spacing: -.2px;
+}
+h3{
+  margin: .2rem 0 .2rem;
+  font-size: 1.15rem;
+  letter-spacing: -.2px;
+}
+
+/* Sections */
 .section{
   padding: 1.2rem 0 2.2rem;
   position: relative;
-  isolation: isolate;   /* IMPORTANT: contains stacking context */
-  overflow: hidden;     /* IMPORTANT: prevents bleed */
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-title{
+  margin: 0 0 .8rem;
 }
 
 /* Cards */
@@ -192,6 +205,7 @@ h1{
   box-shadow: var(--shadow);
 }
 .card strong{ letter-spacing:.2px; }
+.card p{ margin: .65rem 0; }
 
 /* Text helpers */
 .small{
@@ -199,6 +213,31 @@ h1{
   font-size: .95rem;
 }
 .small strong{ color: var(--text); }
+
+/* Lists (used on Services cards) */
+.list{
+  margin: .8rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .55rem;
+}
+.list li{
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--muted);
+}
+.list li::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: .65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(199,163,90,.55);
+  box-shadow: 0 0 0 4px rgba(199,163,90,.10);
+}
 
 /* Grid utilities */
 .grid-3{
@@ -210,8 +249,16 @@ h1{
   .grid-3{ grid-template-columns: 1fr; }
 }
 
-/* Notice (yellow box)
-   Fully clipped + its own layer so it cannot “overlap” visually. */
+.grid-2{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 900px){
+  .grid-2{ grid-template-columns: 1fr; }
+}
+
+/* Notice */
 .notice{
   width: 100%;
   display: block;
@@ -226,95 +273,17 @@ h1{
   padding: 1rem 1rem;
   border-radius: var(--radius);
 
-  overflow: hidden;              /* hard clip */
-  background-clip: padding-box;  /* stops edge bleed */
-  transform: translateZ(0);      /* forces clean compositing on some browsers */
+  overflow: hidden;
+  background-clip: padding-box;
+  transform: translateZ(0);
 }
 
-/* Footer
-   Add a subtle solid backing so the gradient shift behind doesn’t look like overlap. */
+/* Footer */
 .footer{
   border-top: 1px solid var(--line);
   padding: 1.2rem 0 2rem;
   color: var(--muted-2);
   background: rgba(11,19,32,.55);
-}
-
-/* ========== About & Team image styling ========== */
-
-.avatar{
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.05);
-  box-shadow: var(--shadow-soft);
-}
-
-.team{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-@media (max-width: 900px){
-  .team{ grid-template-columns: 1fr; }
-}
-
-.portrait{
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  margin-bottom: .85rem;
-}
-
-.role{
-  color: var(--muted);
-  font-size: .95rem;
-  margin-top: .15rem;
-  margin-bottom: .75rem;
-}
-
-h2{
-  font-size: 1.35rem;
-  letter-spacing: -.2px;
-}
-h3{
-  margin: .2rem 0 .2rem;
-  font-size: 1.15rem;
-  letter-spacing: -.2px;
-}
-
-.card p{ margin: .65rem 0; }
-
-/* About page helpers */
-.section-gap{
-  margin-top: 1.2rem;
-}
-
-.about-row{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-.about-text{
-  margin-top: .9rem;
-}
-
-.section-title{
-  margin: 0 0 .8rem;
-}
-
-/* Callout band to stop visual overlap with footer/background */
-.callout{
-  padding: 0 0 2.2rem;
-  position: relative;
-  isolation: isolate;
 }
 
 /* Buttons / CTAs */
@@ -339,42 +308,29 @@ h3{
   white-space: nowrap;
 }
 
-/* Primary action (gold accent) */
 .btn-primary{
   color: var(--text);
-  background: linear-gradient(
-    180deg,
-    rgba(199,163,90,.22),
-    rgba(199,163,90,.12)
-  );
+  background: linear-gradient(180deg, rgba(199,163,90,.22), rgba(199,163,90,.12));
   border-color: rgba(199,163,90,.35);
   box-shadow: var(--shadow-soft);
 }
-
 .btn-primary:hover{
-  background: linear-gradient(
-    180deg,
-    rgba(199,163,90,.32),
-    rgba(199,163,90,.18)
-  );
+  background: linear-gradient(180deg, rgba(199,163,90,.32), rgba(199,163,90,.18));
   transform: translateY(-1px);
   text-decoration: none;
 }
 
-/* Secondary action (quiet outline) */
 .btn-secondary{
   color: var(--text);
   background: rgba(255,255,255,.04);
   border-color: var(--line);
 }
-
 .btn-secondary:hover{
   background: rgba(255,255,255,.08);
   transform: translateY(-1px);
   text-decoration: none;
 }
 
-/* Button grouping (optional helper) */
 .btn-group{
   display: flex;
   gap: .6rem;
@@ -452,17 +408,120 @@ h3{
 }
 
 .faq-item[open] .faq-icon::after{
-  height: 0; /* turns plus into minus */
+  height: 0;
 }
 
-/* ========== Grid utilities (2-col) ========== */
-.grid-2{
+/* ========== Timeline (What to expect) ========== */
+
+.timeline{
+  margin-top: 1.1rem;
+  display: grid;
+  gap: .9rem;
+}
+
+.timeline-item{
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: .9rem;
+  align-items: start;
+  position: relative;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left: 12px;
+  top: 26px;
+  bottom: -26px;
+  width: 2px;
+  background: rgba(255,255,255,.10);
+}
+
+.timeline-item:last-child::before{
+  display:none;
+}
+
+.timeline-dot{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(199,163,90,.35);
+  background: radial-gradient(circle at 30% 30%, rgba(199,163,90,.35), rgba(199,163,90,.08));
+  box-shadow: var(--shadow-soft);
+  margin-top: 2px;
+}
+
+.timeline-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.05rem;
+  box-shadow: var(--shadow);
+}
+
+.timeline-card h3{
+  margin: 0;
+}
+
+.timeline-card p{
+  margin: .55rem 0 0;
+}
+
+/* ========== About & Team image styling ========== */
+
+.avatar{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  box-shadow: var(--shadow-soft);
+}
+
+.team{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 @media (max-width: 900px){
-  .grid-2{ grid-template-columns: 1fr; }
+  .team{ grid-template-columns: 1fr; }
+}
+
+.portrait{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  margin-bottom: .85rem;
+}
+
+.role{
+  color: var(--muted);
+  font-size: .95rem;
+  margin-top: .15rem;
+  margin-bottom: .75rem;
+}
+
+/* About page helpers */
+.section-gap{ margin-top: 1.2rem; }
+
+.about-row{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.about-text{ margin-top: .9rem; }
+
+/* Callout band */
+.callout{
+  padding: 0 0 2.2rem;
+  position: relative;
+  isolation: isolate;
 }
 
 /* ========== Forms (Contact page) ========== */
@@ -517,5 +576,5 @@ h3{
 }
 
 .form button.btn{
-  border: 1px solid transparent; /* keeps button consistent */
+  border: 1px solid transparent;
 }
