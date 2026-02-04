@@ -381,3 +381,76 @@ h3{
   flex-wrap: wrap;
   margin-top: 1rem;
 }
+
+/* ========== FAQ accordion ========== */
+
+.faq{
+  margin-top: 1rem;
+  display: grid;
+  gap: .8rem;
+}
+
+.faq-item{
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.faq-item summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq-item summary::-webkit-details-marker{ display:none; }
+
+.faq-item summary span:first-child{
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: .1px;
+}
+
+.faq-item[open] summary{
+  background: rgba(255,255,255,.03);
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-panel{
+  padding: 0 1.05rem 1.05rem;
+}
+
+.faq-icon{
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  position: relative;
+  flex: 0 0 auto;
+  background: rgba(199,163,90,.08);
+}
+
+.faq-icon::before,
+.faq-icon::after{
+  content:"";
+  position:absolute;
+  inset: 50% auto auto 50%;
+  width: 10px;
+  height: 2px;
+  background: rgba(255,255,255,.85);
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon::after{
+  width: 2px;
+  height: 10px;
+}
+
+.faq-item[open] .faq-icon::after{
+  height: 0; /* turns plus into minus */
+}
