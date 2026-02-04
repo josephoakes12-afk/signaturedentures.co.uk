@@ -454,3 +454,68 @@ h3{
 .faq-item[open] .faq-icon::after{
   height: 0; /* turns plus into minus */
 }
+
+/* ========== Grid utilities (2-col) ========== */
+.grid-2{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 900px){
+  .grid-2{ grid-template-columns: 1fr; }
+}
+
+/* ========== Forms (Contact page) ========== */
+
+.form label{
+  display:block;
+  margin:.7rem 0 .35rem;
+  font-weight:600;
+  color: var(--text);
+}
+
+.form input,
+.form select,
+.form textarea{
+  width:100%;
+  padding:.85rem .9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  outline: none;
+}
+
+.form textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form input::placeholder,
+.form textarea::placeholder{
+  color: rgba(255,255,255,.55);
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+  border-color: rgba(199,163,90,.65);
+  box-shadow: 0 0 0 4px rgba(199,163,90,.12);
+}
+
+.form select{
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.75) 50%),
+    linear-gradient(135deg, rgba(255,255,255,.75) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(1.15rem),
+    calc(100% - 12px) calc(1.15rem);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.2rem;
+}
+
+.form button.btn{
+  border: 1px solid transparent; /* keeps button consistent */
+}
