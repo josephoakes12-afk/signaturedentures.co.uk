@@ -31,12 +31,21 @@ html,body{ height:100%; }
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg-2);
+  color: var(--text);
+  line-height:1.55;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background:
     radial-gradient(1200px 700px at 30% -10%, rgba(199,163,90,.16), transparent 55%),
     radial-gradient(900px 700px at 90% 0%, rgba(199,163,90,.10), transparent 50%),
     linear-gradient(180deg, var(--bg), var(--bg-2));
-  color: var(--text);
-  line-height:1.55;
+  background-repeat: no-repeat;
 }
 
 /* Links */
