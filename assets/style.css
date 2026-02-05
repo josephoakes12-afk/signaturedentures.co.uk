@@ -112,7 +112,8 @@ header{
 }
 @media (max-width: 900px){
   header{
-    position: static;
+    position: relative !important;
+    top: auto;
   }
 }
 
