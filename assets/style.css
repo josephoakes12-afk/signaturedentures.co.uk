@@ -196,6 +196,9 @@ nav a:hover{
   gap: var(--space-7);
   align-items: start;
 }
+.hero-grid > *{
+  min-width: 0;
+}
 
 .kicker{
   display:inline-block;
@@ -244,6 +247,8 @@ h1{
   color: var(--muted);
   font-size: var(--text-sm);
   letter-spacing: .1px;
+  max-width: 100%;
+  white-space: normal;
 }
 
 h2{
@@ -275,6 +280,10 @@ h3{
   border-radius: var(--radius);
   padding: var(--space-5);
   box-shadow: var(--shadow);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.card a{
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -328,6 +337,9 @@ h3{
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-4);
 }
+.grid-3 > *{
+  min-width: 0;
+}
 @media (max-width: 900px){
   .grid-3{ grid-template-columns: 1fr; }
 
@@ -342,6 +354,9 @@ h3{
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
 }
+.grid-2 > *{
+  min-width: 0;
+}
 @media (max-width: 900px){
   .grid-2{ grid-template-columns: 1fr; }
 }
@@ -351,6 +366,9 @@ h3{
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: var(--space-6);
   align-items: start;
+}
+.contact-grid > *{
+  min-width: 0;
 }
 @media (max-width: 900px){
   .contact-grid{
@@ -362,6 +380,9 @@ h3{
 .stack{
   display: grid;
   gap: var(--space-5);
+}
+.stack > *{
+  min-width: 0;
 }
 
 .map-embed{
@@ -412,6 +433,9 @@ h3{
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: var(--space-6);
   align-items: start;
+}
+.footer-grid > *{
+  min-width: 0;
 }
 .footer-brand strong{
   display: block;
