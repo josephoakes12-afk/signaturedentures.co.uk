@@ -72,8 +72,8 @@ body::before{
 }
 
 /* Links */
-a{ color: inherit; text-decoration:none; }
-a:hover{ text-decoration:underline; }
+a{ color: inherit; text-decoration:none; transition: color .2s ease, text-decoration-color .2s ease; }
+a:hover{ text-decoration:underline; text-decoration-color: rgba(199,163,90,.65); }
 a:focus-visible{
   outline: 2px solid var(--gold);
   outline-offset: 3px;
@@ -348,6 +348,7 @@ h3{
   box-shadow: var(--shadow);
   overflow-wrap: anywhere;
   word-break: break-word;
+  transition: box-shadow .2s ease, transform .2s ease;
 }
 .card a{
   overflow-wrap: anywhere;
@@ -623,6 +624,22 @@ h3{
 .btn-secondary:hover{
   background: rgba(255,255,255,.12);
   border-color: rgba(255,255,255,.28);
+}
+
+@media (hover: hover) and (pointer: fine){
+  .card:hover{
+    box-shadow: 0 16px 34px rgba(0,0,0,.38);
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,
+  *::before,
+  *::after{
+    transition: none !important;
+    animation: none !important;
+  }
 }
 .btn-secondary:active{
   background: rgba(255,255,255,.10);
