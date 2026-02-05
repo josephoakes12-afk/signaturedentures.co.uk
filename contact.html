@@ -87,75 +87,91 @@
         </div>
 
         <div class="stack">
-          <div class="card">
-            <h2 style="margin-top:0;">Send an enquiry</h2>
-            <p class="small" style="margin-top:.35rem;">
-              Tell us a little about what you need and we’ll come back to you with the best next step.
-            </p>
-
-            <!--
-              NOTE: This form currently uses mailto as a simple placeholder.
-              When you're ready, we can switch this to a proper form handler.
-            -->
-            <form action="mailto:enquiries@signaturedentures.co.uk" method="post" enctype="text/plain" class="form">
-              <div class="form-field">
-                <label for="name">Full name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required>
-              </div>
-
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email">
-                </div>
-                <div class="form-field">
-                  <label for="phone">Telephone</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel">
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="reason">Reason for enquiry</label>
-                <select id="reason" name="reason" required>
-                  <option value="">Please select</option>
-                  <option>New dentures</option>
-                  <option>Denture repairs</option>
-                  <option>Relines / comfort adjustments</option>
-                  <option>Implant-retained dentures</option>
-                  <option>General question</option>
-                </select>
-              </div>
-
-              <div class="form-field">
-                <label for="pref">Preferred contact method</label>
-                <select id="pref" name="preferred_contact">
-                  <option value="">No preference</option>
-                  <option>Phone call</option>
-                  <option>Text message</option>
-                  <option>Email</option>
-                </select>
-              </div>
-
-              <div class="form-field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you’re looking for…" required></textarea>
-              </div>
-
-              <p class="small form-hint">
-                We aim to respond within 1 working day. If your enquiry is urgent, please email us with “URGENT” in the subject line.
+          <div class="form-wrap">
+            <div class="card form-card">
+              <h2 style="margin-top:0;">Send an enquiry</h2>
+              <p class="small" style="margin-top:.35rem;">
+                Tell us a little about what you need and we'll come back to you with the best next step.
               </p>
 
-              <div class="form-status" aria-live="polite"></div>
+              <form action="https://formspree.io/f/mkovwblr" method="POST" class="form">
+                <input type="hidden" name="_subject" value="New website enquiry &mdash; Signature Dentures">
+                <div class="form-field">
+                  <label for="fullName">Full name</label>
+                  <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+                </div>
 
-              <div class="btn-group" style="margin-top:1rem;">
-                <button class="btn btn-primary" type="submit">Send enquiry</button>
-                <a class="btn btn-secondary" href="services.html">View services</a>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Telephone</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel">
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="reason">Reason for enquiry</label>
+                  <select id="reason" name="reason" required>
+                    <option value="">Please select</option>
+                    <option>New dentures</option>
+                    <option>Denture repairs</option>
+                    <option>Relines / comfort adjustments</option>
+                    <option>Implant-retained dentures</option>
+                    <option>General question</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="pref">Preferred contact method</label>
+                  <select id="pref" name="preferredContact">
+                    <option value="">No preference</option>
+                    <option>Phone call</option>
+                    <option>Text message</option>
+                    <option>Email</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you're looking for..." required></textarea>
+                </div>
+
+                <div class="honeypot" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="form-status" role="status" aria-live="polite">
+                  We aim to respond within 1 working day. If your enquiry is urgent, please email us with "URGENT" in the subject line.
+                </div>
+
+                <div class="btn-group" style="margin-top:1rem;">
+                  <button class="btn btn-primary" type="submit">Send enquiry</button>
+                  <a class="btn btn-secondary" href="services.html">View services</a>
+                </div>
+
+                <p class="small form-privacy">We'll only use your details to respond to your enquiry.</p>
+              </form>
+            </div>
+
+            <div class="card form-success" role="status" aria-live="polite" aria-hidden="true">
+              <div class="form-success-content">
+                <div class="success-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </div>
+                <h2 tabindex="-1">Thank you for your enquiry</h2>
+                <p class="small" style="margin-top:.4rem;">
+                  We've received your message and will respond as soon as possible.
+                </p>
+                <button class="btn btn-secondary btn-sm form-reset" type="button">Send another enquiry</button>
               </div>
-
-              <p class="small form-privacy">We’ll only use your details to respond to your enquiry.</p>
-            </form>
+            </div>
           </div>
-
           <div class="card">
             <h2 style="margin-top:0;">What happens next</h2>
             <ul class="list">
@@ -204,6 +220,103 @@
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  const form = document.querySelector('.form-wrap form');
+  if (form) {
+    const formWrap = form.closest('.form-wrap');
+    const status = form.querySelector('.form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const resetBtn = formWrap.querySelector('.form-reset');
+    const successPanel = formWrap.querySelector('.form-success');
+    const successHeading = formWrap.querySelector('.form-success h2');
+    const firstInput = form.querySelector('input, select, textarea');
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Send enquiry';
+    const statusDefault = status ? status.textContent.trim() : '';
+
+    const clearStatus = () => {
+      if (!status) return;
+      status.textContent = statusDefault;
+      status.classList.remove('form-status--error', 'form-status--success');
+    };
+
+    const showError = (message) => {
+      if (!status) return;
+      status.textContent = message;
+      status.classList.remove('form-status--success');
+      status.classList.add('form-status--error');
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      let didSucceed = false;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Form submission failed');
+        }
+
+        didSucceed = true;
+        form.reset();
+        formWrap.classList.add('is-submitted');
+        form.setAttribute('aria-hidden', 'true');
+        if (successPanel) {
+          successPanel.setAttribute('aria-hidden', 'false');
+        }
+        if (successHeading) {
+          successHeading.focus();
+        }
+      } catch (error) {
+        showError('Sorry, something went wrong. Please try again or email us directly.');
+      } finally {
+        if (!didSucceed && submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        formWrap.classList.remove('is-submitted');
+        form.removeAttribute('aria-hidden');
+        if (successPanel) {
+          successPanel.setAttribute('aria-hidden', 'true');
+        }
+        clearStatus();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+        if (firstInput) {
+          firstInput.focus();
+        }
+      });
+    }
+  }
 </script>
 </body>
 </html>
+
+
+
+

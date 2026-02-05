@@ -529,6 +529,11 @@ h3{
   box-shadow: 0 0 0 4px rgba(199,163,90,.25);
   text-decoration: none;
 }
+.btn:disabled{
+  opacity: .7;
+  cursor: not-allowed;
+  transform: none;
+}
 
 .btn-primary{
   color: var(--text);
@@ -820,6 +825,10 @@ h3{
   background-repeat: no-repeat;
   padding-right: 2.2rem;
 }
+.form select option{
+  color: #0b1320;
+  background: #fff;
+}
 
 .form button.btn{
   border: 1px solid transparent;
@@ -866,6 +875,81 @@ h3{
 
 .form-privacy{
   margin-top: var(--space-3);
+}
+
+.honeypot{
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-wrap{
+  position: relative;
+  min-width: 0;
+}
+
+.form-card,
+.form-success{
+  transition: opacity .35s ease, transform .35s ease;
+  will-change: opacity, transform;
+}
+
+.form-success{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+.form-success-content{
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+}
+
+.success-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(199,163,90,.45);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  background: rgba(199,163,90,.08);
+  box-shadow: var(--shadow-soft);
+}
+
+.success-icon svg{
+  width: 32px;
+  height: 32px;
+}
+
+.form-wrap.is-submitted .form-card{
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.form-wrap.is-submitted .form-success{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .form-card,
+  .form-success{
+    transition: none;
+    transform: none;
+  }
 }
 
 /* ========== Mobile nav quality-of-life tweaks ========== */
