@@ -38,84 +38,132 @@
       <h1>Get in touch.</h1>
       <p class="lead">Send us an enquiry and we’ll respond as soon as possible.</p>
 
-      <div class="grid grid-2" style="margin-top:1.2rem;">
-        <!-- Contact details -->
-        <div class="card">
-          <p style="margin:.2rem 0;"><strong>Email</strong><br>
-            <a href="mailto:enquiries@signaturedentures.co.uk">enquiries@signaturedentures.co.uk</a>
-          </p>
-
-          <p style="margin:.8rem 0 0;"><strong>Address</strong><br>
-            16 Cross Street<br>
-            Cheadle, Stoke-on-Trent<br>
-            ST10 1NP
-          </p>
-
-          <div class="notice" style="margin-top:1rem;">
-            Email enquiries@signaturedentures.co.uk and we’ll respond within 1 working day.
-          </div>
-
-          <p class="small" style="margin:.9rem 0 0;">
-            <strong>Response time:</strong> We aim to respond within 1 working day.
-          </p>
-        </div>
-
-        <!-- Enquiry form -->
-        <div class="card">
-          <h2 style="margin-top:0;">Send an enquiry</h2>
-          <p class="small" style="margin-top:.35rem;">
-            Tell us a little about what you need and we’ll come back to you with the best next step.
-          </p>
-
-          <!--
-            NOTE: This form currently uses mailto as a simple placeholder.
-            When you're ready, we can switch this to a proper form handler.
-          -->
-          <form action="mailto:enquiries@signaturedentures.co.uk" method="post" enctype="text/plain" class="form">
-            <label for="name">Full name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
-
-            <div class="grid grid-2" style="margin-top:.8rem;">
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email">
-              </div>
-              <div>
-                <label for="phone">Telephone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel">
-              </div>
-            </div>
-
-            <label for="reason" style="margin-top:.8rem;">Reason for enquiry</label>
-            <select id="reason" name="reason" required>
-              <option value="">Please select</option>
-              <option>New dentures</option>
-              <option>Denture repairs</option>
-              <option>Relines / comfort adjustments</option>
-              <option>Implant-retained dentures</option>
-              <option>General question</option>
-            </select>
-
-            <label for="pref" style="margin-top:.8rem;">Preferred contact method</label>
-            <select id="pref" name="preferred_contact">
-              <option value="">No preference</option>
-              <option>Phone call</option>
-              <option>Text message</option>
-              <option>Email</option>
-            </select>
-
-            <label for="message" style="margin-top:.8rem;">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you’re looking for…" required></textarea>
-
-            <p class="small" style="margin:.6rem 0 0;">
-              We aim to respond within 1 working day. If your enquiry is urgent, please email us with “URGENT” in the subject line.
+      <div class="contact-grid" style="margin-top:1.2rem;">
+        <div class="stack">
+          <div class="card">
+            <p style="margin:.2rem 0;"><strong>Email</strong><br>
+              <a href="mailto:enquiries@signaturedentures.co.uk">enquiries@signaturedentures.co.uk</a>
             </p>
 
-            <div class="btn-group" style="margin-top:1rem;">
-              <button class="btn btn-primary" type="submit">Send enquiry</button>
-              <a class="btn btn-secondary" href="services.html">View services</a>
+            <p style="margin:.8rem 0 0;"><strong>Address</strong><br>
+              16 Cross Street<br>
+              Cheadle, Stoke-on-Trent<br>
+              ST10 1NP
+            </p>
+
+            <div class="btn-group" style="margin-top:.9rem;">
+              <a class="btn btn-secondary btn-sm" href="https://maps.app.goo.gl/zYVTP6B7SdQpf3Gy8" target="_blank" rel="noopener">Open in Maps</a>
+              <a class="btn btn-secondary btn-sm" href="https://maps.app.goo.gl/uqpUvkmWCVnN8S4f9" target="_blank" rel="noopener">Parking directions</a>
             </div>
-          </form>
+
+            <div class="notice" style="margin-top:1rem;">
+              Email enquiries@signaturedentures.co.uk and we’ll respond within 1 working day.
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 style="margin-top:0;">Map &amp; directions</h2>
+            <div class="map-embed" aria-label="Map to Signature Dentures">
+              <iframe
+                src="https://www.google.com/maps?q=16+Cross+Street,+Cheadle,+Stoke-on-Trent&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="btn-group" style="margin-top:1rem;">
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/zYVTP6B7SdQpf3Gy8" target="_blank" rel="noopener">Open practice in Google Maps</a>
+              <a class="btn btn-secondary" href="https://maps.app.goo.gl/uqpUvkmWCVnN8S4f9" target="_blank" rel="noopener">Open nearby car park in Google Maps</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 style="margin-top:0;">Parking</h2>
+            <p class="small">There is a large paid for car park near B&amp;M which is only a 2 minute walk from the practice.</p>
+            <p class="small" style="margin-top:.6rem;">Tap the car park link above for directions.</p>
+          </div>
+
+        </div>
+
+        <div class="stack">
+          <div class="card">
+            <h2 style="margin-top:0;">Send an enquiry</h2>
+            <p class="small" style="margin-top:.35rem;">
+              Tell us a little about what you need and we’ll come back to you with the best next step.
+            </p>
+
+            <!--
+              NOTE: This form currently uses mailto as a simple placeholder.
+              When you're ready, we can switch this to a proper form handler.
+            -->
+            <form action="mailto:enquiries@signaturedentures.co.uk" method="post" enctype="text/plain" class="form">
+              <div class="form-field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email">
+                </div>
+                <div class="form-field">
+                  <label for="phone">Telephone</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="reason">Reason for enquiry</label>
+                <select id="reason" name="reason" required>
+                  <option value="">Please select</option>
+                  <option>New dentures</option>
+                  <option>Denture repairs</option>
+                  <option>Relines / comfort adjustments</option>
+                  <option>Implant-retained dentures</option>
+                  <option>General question</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="pref">Preferred contact method</label>
+                <select id="pref" name="preferred_contact">
+                  <option value="">No preference</option>
+                  <option>Phone call</option>
+                  <option>Text message</option>
+                  <option>Email</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you’re looking for…" required></textarea>
+              </div>
+
+              <p class="small form-hint">
+                We aim to respond within 1 working day. If your enquiry is urgent, please email us with “URGENT” in the subject line.
+              </p>
+
+              <div class="form-status" aria-live="polite"></div>
+
+              <div class="btn-group" style="margin-top:1rem;">
+                <button class="btn btn-primary" type="submit">Send enquiry</button>
+                <a class="btn btn-secondary" href="services.html">View services</a>
+              </div>
+
+              <p class="small form-privacy">We’ll only use your details to respond to your enquiry.</p>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2 style="margin-top:0;">What happens next</h2>
+            <ul class="list">
+              <li>We’ll confirm we’ve received your enquiry</li>
+              <li>We’ll reply within 1 working day</li>
+              <li>If needed, we’ll arrange a consultation</li>
+            </ul>
+          </div>
         </div>
       </div>
 
