@@ -80,6 +80,19 @@ a:focus-visible{
   border-radius: 8px;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible{
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(199,163,90,.25);
+  border-radius: 8px;
+}
+
 /* Container */
 .container{
   width: min(var(--max), calc(100% - 2rem));
@@ -190,6 +203,12 @@ nav a:hover{
   color: var(--text);
   background: rgba(255,255,255,.05);
   text-decoration:none;
+}
+
+.header-call{
+  margin-left: .5rem;
+  white-space: nowrap;
+  min-height: 44px;
 }
 
 /* Hero */
@@ -612,6 +631,13 @@ h3{
   gap: var(--space-4);
 }
 
+.faq-item summary:focus-visible{
+  outline: 3px solid var(--gold);
+  outline-offset: -3px;
+  box-shadow: inset 0 0 0 2px rgba(199,163,90,.25);
+  border-radius: var(--radius);
+}
+
 .faq-item summary::-webkit-details-marker{ display:none; }
 
 .faq-item summary span:first-child{
@@ -993,6 +1019,13 @@ h3{
     min-width: 0;
   }
 
+  .header-call{
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
   nav ul{
     justify-content: flex-start;
   }
@@ -1009,6 +1042,15 @@ h3{
   .btn-group .btn{
     width: 100%;
     white-space: normal;
+  }
+}
+
+@media (max-width: 768px){
+  .form input,
+  .form select,
+  .form textarea{
+    font-size: 16px;
+    line-height: 1.35;
   }
 }
 
