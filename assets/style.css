@@ -359,42 +359,66 @@ h3{
   justify-content: center;
   gap: var(--space-2);
 
-  padding: var(--space-3) var(--space-4);
-  border-radius: 999px;
+  min-height: 44px;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
 
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .2px;
 
   text-decoration: none;
   border: 1px solid transparent;
 
   cursor: pointer;
-  transition: all .2s ease;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
   white-space: nowrap;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.btn:active{
+  transform: translateY(0);
+}
+.btn:focus-visible{
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(199,163,90,.25);
+  text-decoration: none;
 }
 
 .btn-primary{
   color: var(--text);
-  background: linear-gradient(180deg, rgba(199,163,90,.22), rgba(199,163,90,.12));
-  border-color: rgba(199,163,90,.35);
+  background: linear-gradient(180deg, rgba(199,163,90,.28), rgba(199,163,90,.16));
+  border-color: rgba(199,163,90,.45);
   box-shadow: var(--shadow-soft);
 }
 .btn-primary:hover{
-  background: linear-gradient(180deg, rgba(199,163,90,.32), rgba(199,163,90,.18));
-  transform: translateY(-1px);
-  text-decoration: none;
+  background: linear-gradient(180deg, rgba(199,163,90,.36), rgba(199,163,90,.20));
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+.btn-primary:active{
+  box-shadow: 0 8px 18px rgba(0,0,0,.24);
 }
 
 .btn-secondary{
   color: var(--text);
-  background: rgba(255,255,255,.04);
-  border-color: var(--line);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.18);
 }
 .btn-secondary:hover{
-  background: rgba(255,255,255,.08);
-  transform: translateY(-1px);
-  text-decoration: none;
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.28);
+}
+.btn-secondary:active{
+  background: rgba(255,255,255,.10);
+}
+
+.btn-sm{
+  min-height: 36px;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
 }
 
 .btn-group{
