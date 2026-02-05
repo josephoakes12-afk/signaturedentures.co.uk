@@ -42,8 +42,8 @@
   --text-3xl: 2.25rem;
 }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
+*, *::before, *::after{ box-sizing:border-box; }
+html,body{ height:100%; max-width: 100%; overflow-x: hidden; }
 
 body{
   margin:0;
@@ -52,6 +52,11 @@ body{
   color: var(--text);
   font-size: var(--text-base);
   line-height:1.55;
+}
+
+img, svg, video, canvas, iframe{
+  max-width: 100%;
+  height: auto;
 }
 
 body::before{
@@ -118,6 +123,7 @@ header{
   display:flex;
   align-items:center;
   gap: .75rem;
+  min-width: 0;
 }
 
 .brand-mark{
@@ -157,11 +163,13 @@ nav ul{
   justify-content:flex-end;
 }
 nav a{
-  display:inline-block;
+  display:inline-flex;
+  align-items: center;
   padding: .55rem .7rem;
   border-radius: 999px;
   color: var(--muted);
   border: 1px solid transparent;
+  min-height: 44px;
 }
 nav a[aria-current="page"]{
   color: var(--text);
@@ -524,6 +532,12 @@ h3{
   margin-top: var(--space-4);
 }
 
+.contact-grid a,
+.footer-email{
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 /* ========== FAQ accordion ========== */
 
 .faq{
@@ -839,6 +853,30 @@ h3{
 
   .brand-name span{
     font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 768px){
+  .nav{
+    flex-wrap: wrap;
+  }
+
+  .nav nav{
+    width: 100%;
+  }
+
+  nav ul{
+    justify-content: flex-start;
+  }
+
+  .btn-group{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-group .btn{
+    width: 100%;
+    white-space: normal;
   }
 }
 
