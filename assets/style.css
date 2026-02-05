@@ -126,6 +126,10 @@ header{
   min-width: 0;
 }
 
+.nav > *{
+  min-width: 0;
+}
+
 .brand-mark{
   width: 44px;
   height: 44px;
@@ -161,6 +165,7 @@ nav ul{
   margin:0;
   flex-wrap: wrap;
   justify-content:flex-end;
+  max-width: 100%;
 }
 nav a{
   display:inline-flex;
@@ -270,6 +275,8 @@ h3{
   border-radius: var(--radius);
   padding: var(--space-5);
   box-shadow: var(--shadow);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .card strong{ letter-spacing:.2px; }
 .card h3{ margin: 0 0 var(--space-2); }
@@ -283,6 +290,8 @@ h3{
 .small{
   color: var(--muted);
   font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .small strong{ color: var(--text); }
 
@@ -298,6 +307,8 @@ h3{
   position: relative;
   padding-left: 1.15rem;
   color: var(--muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .list li::before{
   content:"";
@@ -385,6 +396,8 @@ h3{
   overflow: hidden;
   background-clip: padding-box;
   contain: paint;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Footer */
@@ -419,6 +432,7 @@ h3{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-5);
+  min-width: 0;
 }
 .footer-group-title{
   color: var(--text);
@@ -863,10 +877,15 @@ h3{
 
   .nav nav{
     width: 100%;
+    min-width: 0;
   }
 
   nav ul{
     justify-content: flex-start;
+  }
+
+  nav a{
+    white-space: normal;
   }
 
   .btn-group{
