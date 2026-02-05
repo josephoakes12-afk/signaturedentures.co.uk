@@ -110,6 +110,11 @@ header{
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+@media (max-width: 900px){
+  header{
+    position: static;
+  }
+}
 
 .nav{
   display:flex;
