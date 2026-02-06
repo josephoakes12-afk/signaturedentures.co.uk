@@ -154,7 +154,7 @@ header{
   border-radius: 999px;
 
   /* Logo inside the circle */
-  background-image: url("images/logo-circle.png");
+  background-image: url("/assets/images/logo-circle.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
