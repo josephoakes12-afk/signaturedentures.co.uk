@@ -450,6 +450,31 @@ h3{
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
 }
+
+/* Testimonials */
+.testimonials-grid{
+  margin-top: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.quote-card{
+  display: grid;
+  gap: var(--space-3);
+}
+.quote-card blockquote{
+  margin: 0;
+}
+.quote-meta{
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 900px){
+  .testimonials-grid{
+    grid-template-columns: 1fr;
+  }
+}
 .grid-2 > *{
   min-width: 0;
 }
