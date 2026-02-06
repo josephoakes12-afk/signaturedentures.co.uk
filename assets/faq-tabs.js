@@ -48,4 +48,14 @@
       tabs[nextIndex].focus();
     });
   });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.addEventListener('toggle', (event) => {
+    const target = event.target;
+    if (!target || target.tagName !== 'DETAILS' || !target.open) return;
+    const behavior = prefersReducedMotion.matches ? 'auto' : 'smooth';
+    window.requestAnimationFrame(() => {
+      target.scrollIntoView({ block: 'center', behavior });
+    });
+  }, true);
 })();
