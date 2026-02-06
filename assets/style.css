@@ -371,6 +371,26 @@ h3{
 }
 .small strong{ color: var(--text); }
 
+/* Opening hours list */
+.hours{
+  margin: .6rem 0 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .35rem 1rem;
+}
+.hours dt,
+.hours dd{
+  margin: 0;
+}
+.hours dt{
+  color: var(--text);
+  font-weight: 600;
+}
+.hours dd{
+  color: var(--muted);
+  text-align: right;
+}
+
 /* Lists (used on Services cards) */
 .list{
   margin: .8rem 0 0;
@@ -413,6 +433,15 @@ h3{
   .hero-grid{
     grid-template-columns: 1fr;
     gap: var(--space-6);
+  }
+}
+
+@media (max-width: 520px){
+  .hours{
+    grid-template-columns: 1fr;
+  }
+  .hours dd{
+    text-align: left;
   }
 }
 
