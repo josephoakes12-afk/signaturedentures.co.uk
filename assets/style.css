@@ -335,6 +335,10 @@ h3{
   overflow: hidden;
 }
 
+.page-home .section{
+  padding-block: var(--space-5);
+}
+
 .section-title{
   margin: 0 0 .8rem;
 }
@@ -1218,6 +1222,10 @@ h3{
 @media (min-width: 900px){
   .section{
     padding-block: var(--space-8);
+  }
+
+  .page-home .section{
+    padding-block: var(--space-6);
   }
 
   .hero{
