@@ -23,13 +23,13 @@
 
 <header>
   <div class="container nav">
-    <div class="brand">
+    <a class="brand" href="index.html" aria-label="Signature Dentures">
       <div class="brand-mark" aria-hidden="true"></div>
       <div class="brand-name">
         <strong>Signature Dentures</strong>
         <span>Comfort • Fit • Personal care</span>
       </div>
-    </div>
+    </a>
     <nav aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -166,12 +166,12 @@
                   <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
                 </div>
 
-                <div class="form-status" role="status" aria-live="polite">
+                <div class="form-status" id="response-time" role="status" aria-live="polite">
                   We aim to respond within 1 working day. For urgent enquiries, please email us with “URGENT” in the subject line.
                 </div>
 
                 <div class="btn-group" style="margin-top:1rem;">
-                  <button class="btn btn-primary" type="submit">Send enquiry</button>
+                  <button class="btn btn-primary" type="submit" aria-describedby="response-time">Send enquiry</button>
                   <a class="btn btn-secondary" href="services.html">View services</a>
                 </div>
 
