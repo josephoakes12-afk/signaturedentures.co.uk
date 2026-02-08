@@ -1027,6 +1027,10 @@ h3{
   color: var(--text);
 }
 
+.required-mark{
+  color: rgba(225,120,120,.92);
+}
+
 .form input,
 .form select,
 .form textarea{
@@ -1064,6 +1068,21 @@ h3{
   box-shadow: 0 0 0 4px rgba(199,163,90,.25);
 }
 
+.form input.is-invalid,
+.form select.is-invalid,
+.form textarea.is-invalid{
+  border-color: rgba(225,120,120,.72);
+  box-shadow: 0 0 0 2px rgba(225,120,120,.14);
+}
+
+.form input.is-invalid:focus-visible,
+.form select.is-invalid:focus-visible,
+.form textarea.is-invalid:focus-visible{
+  outline: 3px solid rgba(225,120,120,.92);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(225,120,120,.22);
+}
+
 .form select{
   appearance: none;
   background-image:
@@ -1088,6 +1107,18 @@ h3{
 .form-field{
   margin-top: var(--space-4);
 }
+
+.field-error{
+  margin-top: var(--space-2);
+  color: rgba(255,220,220,.95);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.field-error[hidden]{
+  display: none;
+}
+
 .form-row{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -120,14 +120,16 @@
               <form action="https://formspree.io/f/mkovwblr" method="POST" class="form" accept-charset="UTF-8">
                 <input type="hidden" name="_subject" value="New website enquiry &mdash; Signature Dentures">
                 <div class="form-field">
-                  <label for="fullName">Full name</label>
-                  <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+                  <label for="fullName">Full name <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="fullName" name="fullName" type="text" autocomplete="name" required aria-required="true" aria-describedby="fullName-error">
+                  <p class="field-error" id="fullName-error" hidden></p>
                 </div>
 
                 <div class="form-row">
                   <div class="form-field">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required>
+                    <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+                    <input id="email" name="email" type="email" autocomplete="email" required aria-required="true" aria-describedby="email-error">
+                    <p class="field-error" id="email-error" hidden></p>
                   </div>
                   <div class="form-field">
                     <label for="phone">Telephone</label>
@@ -136,15 +138,16 @@
                 </div>
 
                 <div class="form-field">
-                  <label for="reason">Reason for enquiry</label>
-                  <select id="reason" name="reason" required>
-                    <option value="">Please select</option>
+                  <label for="reason">Reason for enquiry <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="reason" name="reason" required aria-required="true" aria-describedby="reason-error">
+                    <option value="" disabled selected>Please select</option>
                     <option>New dentures</option>
                     <option>Denture repairs</option>
                     <option>Relines / comfort adjustments</option>
                     <option>Implant-retained dentures</option>
                     <option>General question</option>
                   </select>
+                  <p class="field-error" id="reason-error" hidden></p>
                 </div>
 
                 <div class="form-field">
@@ -158,13 +161,14 @@
                 </div>
 
                 <div class="form-field">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you're looking for..." required></textarea>
+                  <label for="message">Message <span class="required-mark" aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you're looking for..." required aria-required="true" aria-describedby="message-error"></textarea>
+                  <p class="field-error" id="message-error" hidden></p>
                 </div>
 
                 <div class="honeypot" aria-hidden="true">
-                  <label for="website">Website</label>
-                  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                  <label for="website" aria-hidden="true">Website</label>
+                  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
                 </div>
 
                 <div class="form-status" id="response-time" role="status" aria-live="polite">
@@ -278,6 +282,7 @@
     const successHeading = formWrap.querySelector('.form-success h2');
     const liveRegion = formWrap.querySelector('#form-live-region');
     const firstInput = form.querySelector('input, select, textarea');
+    const fieldsToValidate = Array.from(form.querySelectorAll('#fullName, #email, #reason, #message'));
     const originalBtnText = submitBtn ? submitBtn.textContent : 'Send enquiry';
     const statusDefault = status ? status.textContent.trim() : '';
 
@@ -294,6 +299,71 @@
       status.textContent = statusDefault;
       status.classList.remove('form-status--error', 'form-status--success');
       status.setAttribute('aria-live', 'polite');
+    };
+
+    const getFieldErrorMessage = (field) => {
+      if (field.validity.valueMissing) {
+        if (field.id === 'fullName') return 'Please enter your full name.';
+        if (field.id === 'email') return 'Please enter your email address.';
+        if (field.id === 'reason') return 'Please select a reason for enquiry.';
+        if (field.id === 'message') return 'Please enter your message.';
+      }
+
+      if (field.id === 'email' && field.validity.typeMismatch) {
+        return 'Please enter a valid email address.';
+      }
+
+      return 'Please check this field.';
+    };
+
+    const setFieldError = (field, message) => {
+      const errorEl = document.getElementById(`${field.id}-error`);
+      field.classList.add('is-invalid');
+      field.setAttribute('aria-invalid', 'true');
+      if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.hidden = false;
+      }
+    };
+
+    const clearFieldError = (field) => {
+      const errorEl = document.getElementById(`${field.id}-error`);
+      field.classList.remove('is-invalid');
+      field.removeAttribute('aria-invalid');
+      if (errorEl) {
+        errorEl.textContent = '';
+        errorEl.hidden = true;
+      }
+    };
+
+    const validateField = (field) => {
+      if (field.checkValidity()) {
+        clearFieldError(field);
+        return true;
+      }
+      setFieldError(field, getFieldErrorMessage(field));
+      return false;
+    };
+
+    const clearAllFieldErrors = () => {
+      fieldsToValidate.forEach(clearFieldError);
+    };
+
+    const validateFields = () => {
+      let hasInvalid = false;
+      let firstInvalid = null;
+
+      fieldsToValidate.forEach((field) => {
+        const valid = validateField(field);
+        if (!valid) {
+          hasInvalid = true;
+          if (!firstInvalid) {
+            firstInvalid = field;
+          }
+        }
+      });
+
+      return { hasInvalid, firstInvalid };
     };
 
     const showError = (message) => {
@@ -314,13 +384,38 @@
       announce(message);
     };
 
+    fieldsToValidate.forEach((field) => {
+      field.addEventListener('invalid', (event) => {
+        event.preventDefault();
+        validateField(field);
+      });
+
+      field.addEventListener('blur', () => {
+        validateField(field);
+      });
+
+      field.addEventListener('change', () => {
+        validateField(field);
+      });
+
+      field.addEventListener('input', () => {
+        if (field.classList.contains('is-invalid')) {
+          validateField(field);
+        }
+      });
+    });
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       clearStatus();
+      clearAllFieldErrors();
 
-      if (!form.checkValidity()) {
-        announce('Please complete all required fields and enter a valid email address.');
-        form.reportValidity();
+      const validation = validateFields();
+      if (validation.hasInvalid || !form.checkValidity()) {
+        showError('Please correct the highlighted fields and try again.');
+        if (validation.firstInvalid) {
+          validation.firstInvalid.focus();
+        }
         return;
       }
 
@@ -361,6 +456,7 @@
         didSucceed = true;
         showSuccess('Thank you. Your enquiry has been sent successfully.');
         form.reset();
+        clearAllFieldErrors();
         formWrap.classList.add('is-submitted');
         form.setAttribute('aria-hidden', 'true');
         if (successPanel) {
@@ -386,6 +482,7 @@
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         form.reset();
+        clearAllFieldErrors();
         formWrap.classList.remove('is-submitted');
         form.removeAttribute('aria-hidden');
         if (successPanel) {
