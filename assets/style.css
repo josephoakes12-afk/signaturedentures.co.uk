@@ -180,16 +180,12 @@ header.site-header{
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  background: radial-gradient(circle at 30% 30%, #6f92cb, var(--primary) 55%, #2a4365 100%);
+  background: url("images/logo-circle.png") center/cover no-repeat;
   border: 2px solid var(--accent);
   box-shadow: inset 0 0 0 2px rgba(249,249,249,.25), 0 8px 16px rgba(21,31,46,.25);
 }
 .site-header .brand-mark::before{
-  content: "SD";
-  color: var(--surface);
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .08em;
+  content: "";
 }
 
 .site-header .brand-name strong{
