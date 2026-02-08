@@ -116,7 +116,7 @@
                 Tell us a little about what you need and we'll come back to you with the best next step.
               </p>
 
-              <form action="https://formspree.io/f/mkovwblr" method="POST" class="form">
+              <form action="https://formspree.io/f/mkovwblr" method="POST" class="form" accept-charset="UTF-8">
                 <input type="hidden" name="_subject" value="New website enquiry &mdash; Signature Dentures">
                 <div class="form-field">
                   <label for="fullName">Full name</label>
@@ -193,6 +193,7 @@
                 <button class="btn btn-secondary btn-sm form-reset" type="button">Send another enquiry</button>
               </div>
             </div>
+            <div id="form-live-region" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"></div>
           </div>
           <div class="card">
             <h2 style="margin-top:0;">What happens next</h2>
@@ -274,14 +275,24 @@
     const resetBtn = formWrap.querySelector('.form-reset');
     const successPanel = formWrap.querySelector('.form-success');
     const successHeading = formWrap.querySelector('.form-success h2');
+    const liveRegion = formWrap.querySelector('#form-live-region');
     const firstInput = form.querySelector('input, select, textarea');
     const originalBtnText = submitBtn ? submitBtn.textContent : 'Send enquiry';
     const statusDefault = status ? status.textContent.trim() : '';
+
+    const announce = (message) => {
+      if (!liveRegion) return;
+      liveRegion.textContent = '';
+      window.setTimeout(() => {
+        liveRegion.textContent = message;
+      }, 20);
+    };
 
     const clearStatus = () => {
       if (!status) return;
       status.textContent = statusDefault;
       status.classList.remove('form-status--error', 'form-status--success');
+      status.setAttribute('aria-live', 'polite');
     };
 
     const showError = (message) => {
@@ -289,6 +300,17 @@
       status.textContent = message;
       status.classList.remove('form-status--success');
       status.classList.add('form-status--error');
+      status.setAttribute('aria-live', 'assertive');
+      announce(message);
+    };
+
+    const showSuccess = (message) => {
+      if (!status) return;
+      status.textContent = message;
+      status.classList.remove('form-status--error');
+      status.classList.add('form-status--success');
+      status.setAttribute('aria-live', 'polite');
+      announce(message);
     };
 
     form.addEventListener('submit', async (event) => {
@@ -296,7 +318,13 @@
       clearStatus();
 
       if (!form.checkValidity()) {
+        announce('Please complete all required fields and enter a valid email address.');
         form.reportValidity();
+        return;
+      }
+
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+        showError('You appear to be offline. Please reconnect and try again, or email us directly.');
         return;
       }
 
@@ -317,10 +345,20 @@
         });
 
         if (!response.ok) {
-          throw new Error('Form submission failed');
+          let details = '';
+          try {
+            const data = await response.json();
+            if (data && Array.isArray(data.errors) && data.errors.length > 0) {
+              details = data.errors.map((item) => item.message).join(' ');
+            }
+          } catch (parseError) {
+            // Keep a generic fallback message when a detailed error isn't available.
+          }
+          throw new Error(details || 'Form submission failed');
         }
 
         didSucceed = true;
+        showSuccess('Thank you. Your enquiry has been sent successfully.');
         form.reset();
         formWrap.classList.add('is-submitted');
         form.setAttribute('aria-hidden', 'true');
@@ -328,10 +366,14 @@
           successPanel.setAttribute('aria-hidden', 'false');
         }
         if (successHeading) {
-          successHeading.focus();
+          window.requestAnimationFrame(() => {
+            successHeading.focus();
+          });
         }
       } catch (error) {
-        showError('Sorry, something went wrong. Please try again or email us directly.');
+        const hasServerMessage = error && error.message && error.message !== 'Form submission failed';
+        const fallbackMessage = 'Sorry, something went wrong while sending your enquiry. Please try again or email us directly.';
+        showError(hasServerMessage ? `Sorry, ${error.message}` : fallbackMessage);
       } finally {
         if (!didSucceed && submitBtn) {
           submitBtn.disabled = false;
@@ -342,6 +384,7 @@
 
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
+        form.reset();
         formWrap.classList.remove('is-submitted');
         form.removeAttribute('aria-hidden');
         if (successPanel) {
@@ -355,6 +398,7 @@
         if (firstInput) {
           firstInput.focus();
         }
+        announce('Form reset. You can send another enquiry.');
       });
     }
   }
