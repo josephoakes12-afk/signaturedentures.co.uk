@@ -1,13 +1,22 @@
 (() => {
   const tablist = document.querySelector('.faq-tabs');
   const tabs = tablist ? Array.from(tablist.querySelectorAll('[role="tab"]')) : [];
-  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+  const panels = Array.from(document.querySelectorAll('.faq-panel[role="tabpanel"]'));
 
   if (!tablist || tabs.length === 0 || panels.length === 0) return;
 
   document.body.classList.add('js-tabs');
 
+  const getTabPanel = (tab) => {
+    const panelId = tab.getAttribute('aria-controls');
+    if (!panelId) return null;
+    return panels.find((panel) => panel.id === panelId) || null;
+  };
+
   const activateTab = (tab) => {
+    const activePanel = getTabPanel(tab);
+    if (!activePanel) return;
+
     tabs.forEach((t) => {
       const isActive = t === tab;
       t.setAttribute('aria-selected', isActive ? 'true' : 'false');
@@ -15,7 +24,7 @@
     });
 
     panels.forEach((panel) => {
-      panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+      panel.hidden = panel !== activePanel;
     });
   };
 
@@ -46,15 +55,26 @@
 
       event.preventDefault();
       tabs[nextIndex].focus();
+      activateTab(tabs[nextIndex]);
     });
   });
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let scrollRaf = null;
   document.addEventListener('toggle', (event) => {
     const target = event.target;
     if (!target || target.tagName !== 'DETAILS' || !target.open) return;
+
+    const panel = target.closest('.faq-panel[role="tabpanel"]');
+    if (!panel || panel.hidden) return;
+
     const behavior = prefersReducedMotion.matches ? 'auto' : 'smooth';
-    window.requestAnimationFrame(() => {
+    if (scrollRaf) {
+      window.cancelAnimationFrame(scrollRaf);
+    }
+    scrollRaf = window.requestAnimationFrame(() => {
+      scrollRaf = null;
+      if (!target.open || panel.hidden) return;
       target.scrollIntoView({ block: 'center', behavior });
     });
   }, true);
