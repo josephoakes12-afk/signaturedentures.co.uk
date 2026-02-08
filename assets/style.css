@@ -898,12 +898,63 @@ h3{
   box-shadow: var(--shadow);
 }
 
+.timeline-icon{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
 .timeline-card h3{
   margin: 0;
 }
 
 .timeline-card p{
   margin: var(--space-2) 0 0;
+}
+
+/* Services timeline with illustrated step markers */
+.timeline--illustrated .timeline-item{
+  grid-template-columns: 112px 1fr;
+}
+
+.timeline--illustrated .timeline-item::before{
+  display: none;
+}
+
+.timeline--illustrated .timeline-marker{
+  width: 96px;
+  height: 96px;
+  margin-inline: auto;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(199,163,90,.35);
+  background: rgba(255,255,255,.04);
+  box-shadow: var(--shadow-soft);
+}
+
+.timeline-card--grouped{
+  display: grid;
+  gap: var(--space-4);
+}
+
+.timeline-card--grouped .timeline-step + .timeline-step{
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-3);
+}
+
+@media (max-width: 480px){
+  .timeline--illustrated .timeline-item{
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .timeline--illustrated .timeline-marker{
+    width: 72px;
+    height: 72px;
+    margin-inline: 0;
+  }
 }
 
 /* ========== About & Team image styling ========== */
