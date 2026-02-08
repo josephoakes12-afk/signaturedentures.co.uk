@@ -259,6 +259,10 @@ h1{
   max-width: 70ch;
 }
 
+.hero .btn-group{
+  margin-top: var(--space-4);
+}
+
 .trust-strip{
   padding: var(--space-5) 0;
 }
