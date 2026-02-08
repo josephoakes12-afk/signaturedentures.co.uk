@@ -28,9 +28,9 @@
       const currentIndex = tabs.indexOf(tab);
       let nextIndex = null;
 
-      if (event.key === 'ArrowRight') {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         nextIndex = (currentIndex + 1) % tabs.length;
-      } else if (event.key === 'ArrowLeft') {
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
         nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
       } else if (event.key === 'Home') {
         nextIndex = 0;

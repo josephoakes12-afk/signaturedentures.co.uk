@@ -704,7 +704,7 @@ h3{
 }
 
 .btn-sm{
-  min-height: 36px;
+  min-height: 44px;
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
 }
@@ -793,7 +793,7 @@ h3{
   font-weight: 600;
   letter-spacing: .2px;
   cursor: pointer;
-  min-height: 40px;
+  min-height: 44px;
 }
 .faq-tab[aria-selected="true"]{
   color: var(--text);
