@@ -212,7 +212,7 @@ nav a:hover{
 }
 
 /* Hero */
-.hero{ padding: calc(var(--space-8) + var(--space-4)) 0 var(--space-8); }
+.hero{ padding: calc(var(--space-7) + var(--space-4)) 0 var(--space-7); }
 
 .hero-grid{
   display: grid;
@@ -329,14 +329,14 @@ h3{
 
 /* Sections */
 .section{
-  padding-block: var(--space-7);
+  padding-block: var(--space-6);
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
 .page-home .section{
-  padding-block: var(--space-5);
+  padding-block: var(--space-4);
 }
 
 .section-title{
@@ -1221,18 +1221,18 @@ h3{
 
 @media (min-width: 900px){
   .section{
-    padding-block: var(--space-8);
+    padding-block: var(--space-7);
   }
 
   .page-home .section{
-    padding-block: var(--space-6);
+    padding-block: var(--space-5);
   }
 
   .hero{
-    padding: calc(var(--space-9) + var(--space-4)) 0 calc(var(--space-8) + var(--space-2));
+    padding: calc(var(--space-8) + var(--space-4)) 0 calc(var(--space-7) + var(--space-2));
   }
 
   .card{
-    padding: var(--space-7);
+    padding: var(--space-6);
   }
 }
