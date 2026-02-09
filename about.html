@@ -44,15 +44,20 @@
 
 <header class="site-header">
   <div class="container masthead">
-    <a class="brand" href="index.html" aria-label="Signature Dentures home">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-name">
-        <strong>Signature Dentures</strong>
-        <span>Comfort &bull; Fit &bull; Personal care</span>
-      </span>
-    </a>
+    <div class="nav-bar">
+      <a class="brand" href="index.html" aria-label="Signature Dentures home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">
+          <strong>Signature Dentures</strong>
+          <span>Comfort &bull; Fit &bull; Personal care</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav-overlay">
+        <span class="menu-toggle-text">Menu</span>
+      </button>
+    </div>
 
-    <nav class="primary-nav" aria-label="Primary">
+    <nav class="primary-nav nav-desktop" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -60,26 +65,56 @@
         <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="faq.html">FAQs</a></li>
         <li><a href="contact.html">Contact</a></li>
-
       </ul>
     </nav>
 
     <div class="masthead-actions">
       <div class="social-links">
-        <a class="social-btn" href="https://www.instagram.com/signaturedentures/" target="_blank" rel="noopener noreferrer" aria-label="Signature Dentures on Instagram">
+          <a class="social-btn" href="https://www.instagram.com/signaturedentures/" target="_blank" rel="noopener noreferrer" aria-label="Signature Dentures on Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect>
-            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+          <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
           </svg>
-        </a>
-        <a class="social-btn" href="https://www.facebook.com/profile.php?id=61587211391663" target="_blank" rel="noopener noreferrer" aria-label="Signature Dentures on Facebook">
+          </a>
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61587211391663" target="_blank" rel="noopener noreferrer" aria-label="Signature Dentures on Facebook">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M13.5 21v-7h2.5l.4-3h-2.9V9.1c0-.87.24-1.46 1.49-1.46H16.5V5c-.72-.09-1.44-.14-2.17-.14-2.28 0-3.83 1.39-3.83 3.95V11H8v3h2.5v7h3Z" fill="currentColor"></path>
+          <path d="M13.5 21v-7h2.5l.4-3h-2.9V9.1c0-.87.24-1.46 1.49-1.46H16.5V5c-.72-.09-1.44-.14-2.17-.14-2.28 0-3.83 1.39-3.83 3.95V11H8v3h2.5v7h3Z" fill="currentColor"></path>
           </svg>
-        </a>
+          </a>
       </div>
       <a class="masthead-cta" href="contact.html">Book / Enquire</a>
+    </div>
+  </div>
+
+  <div class="nav-overlay" id="mobile-nav-overlay" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" hidden>
+    <button class="nav-overlay-backdrop" type="button" tabindex="-1" aria-label="Close menu"></button>
+    <div class="nav-overlay-panel" role="document" tabindex="-1">
+      <nav class="nav-overlay-nav" aria-label="Mobile primary">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="social-links nav-overlay-social">
+          <a class="social-btn" href="https://www.instagram.com/signaturedentures/" target="_blank" rel="noopener noreferrer" aria-label="Signature Dentures on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+          </svg>
+          </a>
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61587211391663" target="_blank" rel="noopener noreferrer" aria-label="Signature Dentures on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M13.5 21v-7h2.5l.4-3h-2.9V9.1c0-.87.24-1.46 1.49-1.46H16.5V5c-.72-.09-1.44-.14-2.17-.14-2.28 0-3.83 1.39-3.83 3.95V11H8v3h2.5v7h3Z" fill="currentColor"></path>
+          </svg>
+          </a>
+      </div>
+      <a class="masthead-cta nav-overlay-cta" href="contact.html">Book / Enquire</a>
     </div>
   </div>
 </header>
@@ -259,14 +294,6 @@
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 
+<script src="assets/nav.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
