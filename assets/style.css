@@ -1495,6 +1495,12 @@ h3{
 
 .site-header .nav-overlay{
   display: none;
+  pointer-events: none;
+}
+
+.site-header .nav-overlay[hidden]{
+  display: none !important;
+  pointer-events: none;
 }
 
 html.nav-open,
@@ -1570,6 +1576,16 @@ body.nav-open{
     align-items: start;
     justify-items: center;
     padding: .85rem;
+    pointer-events: none;
+  }
+
+  .site-header .nav-overlay.is-open{
+    pointer-events: auto;
+  }
+
+  .site-header .nav-overlay:not(.is-open) .nav-overlay-backdrop,
+  .site-header .nav-overlay:not(.is-open) .nav-overlay-panel{
+    pointer-events: none;
   }
 
   .site-header .nav-overlay-backdrop{
