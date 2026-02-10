@@ -1,12 +1,24 @@
 (() => {
-  const COOKIE_DISMISS_KEY = "sd_cookie_notice_dismissed";
-  const notice = document.querySelector("[data-cookie-notice]");
+  const { hostname, protocol, pathname, search, hash } = window.location;
 
-  if (!notice) {
+  if (pathname.endsWith("/index.html")) {
+    window.location.replace("https://signaturedentures.co.uk/");
     return;
   }
 
-  const dismissButton = notice.querySelector("[data-cookie-dismiss]");
+  if (hostname === "www.signaturedentures.co.uk" || protocol === "http:") {
+    window.location.replace(`https://signaturedentures.co.uk${pathname}${search}${hash}`);
+    return;
+  }
+
+  const yearNode = document.getElementById("y");
+  if (yearNode) {
+    yearNode.textContent = String(new Date().getFullYear());
+  }
+
+  const COOKIE_DISMISS_KEY = "sd_cookie_notice_dismissed";
+  const notice = document.querySelector("[data-cookie-notice]");
+  const dismissButton = notice ? notice.querySelector("[data-cookie-dismiss]") : null;
 
   const isDismissed = () => {
     try {
@@ -24,19 +36,29 @@
     }
   };
 
-  if (isDismissed()) {
-    notice.hidden = true;
-    return;
+  if (notice) {
+    if (isDismissed()) {
+      notice.hidden = true;
+    } else {
+      notice.hidden = false;
+      if (dismissButton) {
+        dismissButton.addEventListener("click", () => {
+          notice.hidden = true;
+          setDismissed();
+        });
+      }
+    }
   }
 
-  notice.hidden = false;
-
-  if (!dismissButton) {
-    return;
+  if ("serviceWorker" in navigator) {
+    window.addEventListener(
+      "load",
+      () => {
+        navigator.serviceWorker.register("/sw.js").catch(() => {
+          // Ignore registration errors to keep first paint non-blocking.
+        });
+      },
+      { once: true }
+    );
   }
-
-  dismissButton.addEventListener("click", () => {
-    notice.hidden = true;
-    setDismissed();
-  });
 })();

@@ -37,7 +37,8 @@
   }
   </script>
   <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="assets/style.v1.css" />
+  <link rel="preload" href="/assets/style.css" as="style" />
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -193,18 +194,25 @@
       <div class="timeline timeline--illustrated" aria-label="What to expect timeline">
         <div class="timeline-item">
           <div class="timeline-marker">
-            <img
-              class="timeline-icon"
-              src="assets/images/Consultation-192.png"
-              srcset="assets/images/Consultation-96.png 96w, assets/images/Consultation-192.png 192w"
-              sizes="(max-width: 480px) 72px, 96px"
-              alt=""
-              aria-hidden="true"
-              width="96"
-              height="96"
-              decoding="async"
-              loading="lazy"
-            />
+            <picture class="timeline-icon-wrap">
+              <source
+                type="image/webp"
+                srcset="assets/images/Consultation-96.webp 96w, assets/images/Consultation-192.webp 192w"
+                sizes="(max-width: 480px) 72px, 96px"
+              />
+              <img
+                class="timeline-icon"
+                src="assets/images/Consultation-192.png"
+                srcset="assets/images/Consultation-96.png 96w, assets/images/Consultation-192.png 192w"
+                sizes="(max-width: 480px) 72px, 96px"
+                alt=""
+                aria-hidden="true"
+                width="96"
+                height="96"
+                decoding="async"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div class="timeline-card timeline-card--grouped">
             <div class="timeline-step">
@@ -226,18 +234,25 @@
 
         <div class="timeline-item">
           <div class="timeline-marker">
-            <img
-              class="timeline-icon"
-              src="assets/images/Fitting-192.png"
-              srcset="assets/images/Fitting-96.png 96w, assets/images/Fitting-192.png 192w"
-              sizes="(max-width: 480px) 72px, 96px"
-              alt=""
-              aria-hidden="true"
-              width="96"
-              height="96"
-              decoding="async"
-              loading="lazy"
-            />
+            <picture class="timeline-icon-wrap">
+              <source
+                type="image/webp"
+                srcset="assets/images/Fitting-96.webp 96w, assets/images/Fitting-192.webp 192w"
+                sizes="(max-width: 480px) 72px, 96px"
+              />
+              <img
+                class="timeline-icon"
+                src="assets/images/Fitting-192.png"
+                srcset="assets/images/Fitting-96.png 96w, assets/images/Fitting-192.png 192w"
+                sizes="(max-width: 480px) 72px, 96px"
+                alt=""
+                aria-hidden="true"
+                width="96"
+                height="96"
+                decoding="async"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div class="timeline-card timeline-card--grouped">
             <div class="timeline-step">
@@ -259,18 +274,25 @@
 
         <div class="timeline-item">
           <div class="timeline-marker">
-            <img
-              class="timeline-icon"
-              src="assets/images/Adjustments-192.png"
-              srcset="assets/images/Adjustments-96.png 96w, assets/images/Adjustments-192.png 192w"
-              sizes="(max-width: 480px) 72px, 96px"
-              alt=""
-              aria-hidden="true"
-              width="96"
-              height="96"
-              decoding="async"
-              loading="lazy"
-            />
+            <picture class="timeline-icon-wrap">
+              <source
+                type="image/webp"
+                srcset="assets/images/Adjustments-96.webp 96w, assets/images/Adjustments-192.webp 192w"
+                sizes="(max-width: 480px) 72px, 96px"
+              />
+              <img
+                class="timeline-icon"
+                src="assets/images/Adjustments-192.png"
+                srcset="assets/images/Adjustments-96.png 96w, assets/images/Adjustments-192.png 192w"
+                sizes="(max-width: 480px) 72px, 96px"
+                alt=""
+                aria-hidden="true"
+                width="96"
+                height="96"
+                decoding="async"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div class="timeline-card">
             <h3>Aftercare and adjustments</h3>
@@ -334,7 +356,7 @@
   </div>
 </div>
 
-<script defer src="assets/site.v1.js"></script>
-<script defer src="assets/nav.v1.js"></script>
+<script defer src="/assets/site.js"></script>
+<script defer src="/assets/nav.js"></script>
 </body>
 </html>
