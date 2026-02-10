@@ -7,13 +7,6 @@
   <title>Services | Signature Dentures</title>
   <meta name="description" content="Denture services including consultations, same day and fast track dentures, repairs, relines, additions, cleaning, implant retained dentures and sports mouthguards." />
   <link rel="canonical" href="https://signaturedentures.co.uk/services.html" />
-  <script>
-    (function () {
-      if (location.hostname === "www.signaturedentures.co.uk" || location.protocol === "http:") {
-        location.replace("https://signaturedentures.co.uk" + location.pathname + location.search + location.hash);
-      }
-    })();
-  </script>
   <meta property="og:site_name" content="Signature Dentures" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Services | Signature Dentures" />
@@ -44,7 +37,7 @@
   }
   </script>
   <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/style.v1.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -202,11 +195,13 @@
           <div class="timeline-marker">
             <img
               class="timeline-icon"
-              src="assets/images/Consultation.png"
+              src="assets/images/Consultation-192.png"
+              srcset="assets/images/Consultation-96.png 96w, assets/images/Consultation-192.png 192w"
+              sizes="(max-width: 480px) 72px, 96px"
               alt=""
               aria-hidden="true"
-              width="64"
-              height="64"
+              width="96"
+              height="96"
               decoding="async"
               loading="lazy"
             />
@@ -233,11 +228,13 @@
           <div class="timeline-marker">
             <img
               class="timeline-icon"
-              src="assets/images/Fitting.png"
+              src="assets/images/Fitting-192.png"
+              srcset="assets/images/Fitting-96.png 96w, assets/images/Fitting-192.png 192w"
+              sizes="(max-width: 480px) 72px, 96px"
               alt=""
               aria-hidden="true"
-              width="64"
-              height="64"
+              width="96"
+              height="96"
               decoding="async"
               loading="lazy"
             />
@@ -264,11 +261,13 @@
           <div class="timeline-marker">
             <img
               class="timeline-icon"
-              src="assets/images/Adjustments.png"
+              src="assets/images/Adjustments-192.png"
+              srcset="assets/images/Adjustments-96.png 96w, assets/images/Adjustments-192.png 192w"
+              sizes="(max-width: 480px) 72px, 96px"
               alt=""
               aria-hidden="true"
-              width="64"
-              height="64"
+              width="96"
+              height="96"
               decoding="async"
               loading="lazy"
             />
@@ -335,10 +334,7 @@
   </div>
 </div>
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-<script src="assets/site.js"></script>
-<script src="assets/nav.js"></script>
+<script defer src="assets/site.v1.js"></script>
+<script defer src="assets/nav.v1.js"></script>
 </body>
 </html>
