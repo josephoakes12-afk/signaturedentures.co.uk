@@ -103,41 +103,6 @@ summary:focus-visible,
   margin-inline: auto;
 }
 
-/* Global text alignment */
-body,
-main,
-section,
-.container{
-  text-align: center;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-li,
-small{
-  text-align: center;
-}
-
-.btn-group,
-.badges,
-.faq-tabs,
-.masthead-actions,
-.social-links,
-.nav-overlay-social,
-.actions,
-.cta-row{
-  justify-content: center;
-}
-
-input,
-textarea,
-select{
-  text-align: left;
-}
-
 /* Skip link */
 .skip-link{
   position:absolute;
