@@ -54,9 +54,12 @@
     window.addEventListener(
       "load",
       () => {
-        navigator.serviceWorker.register("/sw.js").catch(() => {
-          // Ignore registration errors to keep first paint non-blocking.
-        });
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((registration) => registration.update())
+          .catch(() => {
+            // Ignore registration errors to keep first paint non-blocking.
+          });
       },
       { once: true }
     );
