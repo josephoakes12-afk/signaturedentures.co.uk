@@ -1,5 +1,23 @@
 (() => {
   const { hostname, protocol, pathname, search, hash } = window.location;
+  const conflictMarkerPattern = /<{7}\s*HEAD|={7}|>{7}\s*[0-9a-f]{7,}/g;
+
+  const stripConflictMarkerText = () => {
+    const root = document.body;
+    if (!root) return;
+
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+
+    while (node) {
+      if (conflictMarkerPattern.test(node.nodeValue || "")) {
+        node.nodeValue = (node.nodeValue || "").replace(conflictMarkerPattern, "").trim();
+      }
+      conflictMarkerPattern.lastIndex = 0;
+      node = walker.nextNode();
+    }
+  };
+
   const isIndexHtml = pathname.endsWith("/index.html");
   const needsCanonicalRedirect =
     hostname === "www.signaturedentures.co.uk" || protocol === "http:";
@@ -13,6 +31,8 @@
     window.location.replace(`https://signaturedentures.co.uk${pathname}${search}${hash}`);
     return;
   }
+
+  stripConflictMarkerText();
 
   const yearNode = document.getElementById("y");
   if (yearNode) {
